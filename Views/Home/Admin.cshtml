@@ -1,7 +1,5 @@
 ﻿@using CarInsurance.Models
 
-@model List<InsuranceEntities>
-
 @model Insuree insuree = new Insuree() 
 
 <div class="row no-gutters m-3">
@@ -10,7 +8,6 @@
             <h5 class="m-0">Quotes</h5>
         </div>
         <div class="card-body">
-            @foreach (var insuree in Insuree)
             {
                 <div class="row">
                     <div class="col">
@@ -23,7 +20,7 @@
                         @insuree.EmailAddress
                     </div>
                     <div class="col">
-                     
+                        @insuree.Quote
                     </div>
                     }
 

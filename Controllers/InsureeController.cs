@@ -126,12 +126,11 @@ namespace CarInsurance.Controllers
         }
         
 
-        public decimal GetQuote(Insuree)
+        public decimal GetQuote(Insuree insuree)
         {
             // write logic for this function dammit
             // do we need a connection string to connect to database to get access to models?
-            int baseQuote = 50;
-            Insuree insuree = new Insuree();
+            decimal baseQuote = 50;
 
             // 18 or under, add 100 per month
             if (insuree.DateOfBirth.Year >= 2004)
@@ -175,7 +174,7 @@ namespace CarInsurance.Controllers
                 baseQuote += 50;
             }
 
-            // add 10 per speeding ticket INCOMPLETE... NEED HELP HERE TOO
+            // add 10 per speeding ticket 
             if (insuree.SpeedingTickets > 0)
             {
                 baseQuote += 10;
@@ -184,13 +183,13 @@ namespace CarInsurance.Controllers
             // add 25% if DUI is true
             if (insuree.DUI)
             {
-                baseQuote = (int)(baseQuote + (baseQuote * .25));
+                baseQuote = baseQuote + (baseQuote * (decimal).25);
             }
 
             // add 50% if full coverage
             if (insuree.CoverageType)
             {
-                baseQuote = (int)(baseQuote + (baseQuote * .5)); 
+                baseQuote = baseQuote + (baseQuote * (decimal).5); 
             }
             // do I need this return statement?
             return baseQuote;
