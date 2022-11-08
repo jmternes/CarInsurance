@@ -1,0 +1,33 @@
+﻿@using CarInsurance.Models
+
+@model List<InsuranceEntities>
+
+@model Insuree insuree = new Insuree() 
+
+<div class="row no-gutters m-3">
+    <div class="glyphicon-credit-card col-sm-12 col-md-10 col-lg-6 mx-auto shadow">
+        <div class="card-header text-center">
+            <h5 class="m-0">Quotes</h5>
+        </div>
+        <div class="card-body">
+            @foreach (var insuree in Insuree)
+            {
+                <div class="row">
+                    <div class="col">
+                        @insuree.FirstName
+                    </div>
+                    <div class="col">
+                        @insuree.LastName
+                    </div>
+                    <div class="col">
+                        @insuree.EmailAddress
+                    </div>
+                    <div class="col">
+                     
+                    </div>
+                    }
+
+                </div>
+         </div>
+    </div>
+</div>
