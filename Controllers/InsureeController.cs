@@ -124,7 +124,11 @@ namespace CarInsurance.Controllers
             }
             base.Dispose(disposing);
         }
-        
+
+        public ActionResult Admin()
+        {
+            return View(db.Insurees.ToList());
+        }
 
         public decimal GetQuote(Insuree insuree)
         {
@@ -139,7 +143,7 @@ namespace CarInsurance.Controllers
             }
 
             // age 19-25, add 50
-            if (insuree.DateOfBirth.Year <= 2003 || insuree.DateOfBirth.Year >= 1997)
+            if (insuree.DateOfBirth.Year <= 2003 && insuree.DateOfBirth.Year >= 1997)
             {
                 baseQuote += 50;
             }
@@ -177,7 +181,7 @@ namespace CarInsurance.Controllers
             // add 10 per speeding ticket 
             if (insuree.SpeedingTickets > 0)
             {
-                baseQuote += 10;
+                baseQuote += insuree.SpeedingTickets * 10;
             }
 
             // add 25% if DUI is true
